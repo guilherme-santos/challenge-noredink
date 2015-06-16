@@ -1,0 +1,22 @@
+{
+  "name": "noredink",
+  "version": "0.0.1",
+  "authors": [
+    "Guilherme Santos <xguiga@gmail.com>"
+  ],
+  "description": "Punctuation manupulation",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.4",
+    "angular": "~1.4.0",
+    "angular-sanitize": "~1.4.0",
+    "fontawesome": "~4.3.0"
+  }
+}

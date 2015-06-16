@@ -1,0 +1,55 @@
+<html lang="en" ng-app="punctuationApp">
+    <head>
+        <meta charset="utf-8">
+        <title>NoRedInk</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/app.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="jumbotron">
+                    <h1>Punctuation manipulation</h1>
+                    <p>Write a sentence with wrong punctuation and use follow controls to fix it.</p>
+                </div>
+
+                <form ng-controller="PunctuationController as PuctuationCtrl">
+                    <div class="form-group">
+                        <label for="sentence">Original Sentence</label>
+                        <input type="text" class="form-control input-lg" placeholder="Enter the wrong sentence"
+                               ng-model="PuctuationCtrl.sentence" ng-change="PuctuationCtrl.resetWordSelected()" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sentence">Sentence Fixed</label>
+                        <p class="form-control-static input-lg" ng-class="{ 'text-muted': PuctuationCtrl.emptySentence() }" id="sentence">
+                            <span ng-bind-html="PuctuationCtrl.getSentence() || 'Empty sentence'"></span>
+                        </p>
+                    </div>
+                    
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default" ng-click="PuctuationCtrl.prevWordSelected()">
+                            <span class="fa fa-arrow-circle-left"></span>
+                            Prev word
+                        </button>
+                        <button type="button" class="btn btn-default" ng-click="PuctuationCtrl.toggleComma()">
+                            <span class="fa" ng-class="{ 'fa-eye': !PuctuationCtrl.hasComma(), 'fa-eye-slash': PuctuationCtrl.hasComma() } "></span>
+                            Comma
+                        </button>
+                        <button type="button" class="btn btn-default" ng-click="PuctuationCtrl.nextWordSelected()">
+                            Next word
+                            <span class="fa fa-arrow-circle-right"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <script src="bower_components/jquery/dist/jquery.min.js" type="application/javascript"></script>
+        <script src="bower_components/angular/angular.min.js" type="application/javascript"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.min.js" type="application/javascript"></script>
+        <script src="js/app.js" type="application/javascript"></script>
+    </body>
+</html>
